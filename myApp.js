@@ -144,7 +144,7 @@ app.use(helmet.dnsPrefetchControl());
 // use this option only when there is a real need.
 
 // Use helmet.noCache()
-
+app.use(helmet.noCache());
 
 
 /** 10) Content Security Policy - `helmet.contentSecurityPolicy()` */
@@ -174,6 +174,8 @@ app.use(helmet.dnsPrefetchControl());
 // **Hint**: 
 // in the `"'self'"` keyword, the single quotes are part of the keyword itself, 
 // so it needs to be enclosed in **double quotes** to be working.
+app.use(helmet.contentSecurityPolicy({directives : {defaultSrc:["'self'"],scriptSrc:["'self'","trusted-cdn.com"]}}))
+
 
 
 
